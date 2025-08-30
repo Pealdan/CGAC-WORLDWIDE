@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CGAC - Under Construction</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Chopin Script (fancy font for scripture) -->
+  <link href="https://fonts.cdnfonts.com/css/chopin-script" rel="stylesheet">
+
+  <style>
+   body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url("./IMG-20240902-WA0002.jpg") center/cover no-repeat fixed;
+  animation: bgZoom 20s ease-in-out infinite alternate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  text-align: center;
+}
+
+
+
+    .under-construction {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0px 8px 30px rgba(0,0,0,0.2);
+      max-width: 700px;
+      width: 100%;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .under-construction h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #dc3545;
+      text-transform: uppercase;
+    }
+
+    .under-construction p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+
+    /* Countdown */
+    .countdown {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 1rem 0 2rem 0;
+      color: #fff;
+      background: #dc3545;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 20px rgba(220,53,69,0.5);
+      text-shadow: 0 0 10px #ffb3b3;
+    }
+
+    /* Scripture Verse */
+    .scripture {
+      font-family: "Chopin Script", cursive;
+      font-size: 2rem;
+      color: #222;
+      margin: 1.5rem 0;
+      line-height: 1.4;
+    }
+
+    /* Social icons */
+    .social-icons a {
+      font-size: 2.5rem;
+      margin: 0 20px;
+      color: #dc3545;
+      transition: 0.4s;
+    }
+    .social-icons a:hover {
+      color: #ff4444;
+      transform: scale(1.2);
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Launch image */
+    .launch-img {
+      display: none;
+      margin-top: 25px;
+      animation: zoomIn 1.5s ease forwards;
+    }
+    .launch-img img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0px 6px 20px rgba(0,0,0,0.3);
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="under-construction" id="construction">
+    <h1>Christ Gospel Apostolic Church</h1>
+    <p>✨ Our website is on the way. Stay tuned! ✨</p>
+
+    <!-- Countdown -->
+    <div id="countdown" class="countdown"></div>
+
+    <!-- Scripture Verse -->
+    <div class="scripture">
+      “The glory of this latter house shall be greater than of the former, saith the Lord of hosts.” <br> — Haggai 2:9
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="mailto:info@cgacworldwide.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/2348030410868" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <!-- Launch Image -->
+    <div class="launch-img" id="launchImg">
+      <img src="launch.jpg" alt="We are Live!">
+    </div>
+
+    <footer class="mt-4">
+      &copy; 2025 Christ Gospel Apostolic Church. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // Fixed launch date (50 days from Aug 29, 2025 → Oct 18, 2025)
+    var launchDate = new Date("Oct 18, 2025 00:00:00").getTime();
+
+    var x = setInterval(function() {
+      var nowTime = new Date().getTime();
+      var distance = launchDate - nowTime;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance > 0) {
+        document.getElementById("countdown").innerHTML =
+          (days < 10 ? "0" : "") + days + "d : " +
+          (hours < 10 ? "0" : "") + hours + "h : " +
+          (minutes < 10 ? "0" : "") + minutes + "m : " +
+          (seconds < 10 ? "0" : "") + seconds + "s ";
+      } else {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "00d : 00h : 00m : 00s";
+        document.getElementById("launchImg").style.display = "block";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
