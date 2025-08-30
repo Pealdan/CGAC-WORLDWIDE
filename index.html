@@ -11,30 +11,52 @@
   <link href="https://fonts.cdnfonts.com/css/chopin-script" rel="stylesheet">
 
   <style>
-   body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  background: url("./IMG-20240902-WA0002.jpg") center/cover no-repeat fixed;
-  animation: bgZoom 20s ease-in-out infinite alternate;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Poppins", sans-serif;
-  overflow: hidden;
-  text-align: center;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(-45deg, #dc3545, #ff6f61, #f8f9fa, #ffe0e0);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
 
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
+    /* Background logo faint */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: url("./IMG-20240902-WA0002.jpg") no-repeat center;
+      background-size: 800px;
+      opacity: 0.08;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
 
     .under-construction {
       background: rgba(255, 255, 255, 0.95);
-      padding: 3rem;
+      padding: 2rem;
       border-radius: 20px;
       box-shadow: 0px 8px 30px rgba(0,0,0,0.2);
       max-width: 700px;
-      width: 100%;
+      width: 95%;
       animation: fadeIn 2s ease-in-out;
+      position: relative;
+      z-index: 2;
     }
 
     @keyframes fadeIn {
@@ -43,7 +65,7 @@
     }
 
     .under-construction h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: bold;
       margin-bottom: 1rem;
       color: #dc3545;
@@ -51,19 +73,19 @@
     }
 
     .under-construction p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-bottom: 1.5rem;
       color: #444;
     }
 
     /* Countdown */
     .countdown {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: bold;
-      margin: 1rem 0 2rem 0;
+      margin: 1rem 0 1.5rem 0;
       color: #fff;
       background: #dc3545;
-      padding: 15px;
+      padding: 10px;
       border-radius: 15px;
       box-shadow: 0px 4px 20px rgba(220,53,69,0.5);
       text-shadow: 0 0 10px #ffb3b3;
@@ -72,16 +94,16 @@
     /* Scripture Verse */
     .scripture {
       font-family: "Chopin Script", cursive;
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: #222;
-      margin: 1.5rem 0;
+      margin: 1.2rem 0;
       line-height: 1.4;
     }
 
     /* Social icons */
     .social-icons a {
-      font-size: 2.5rem;
-      margin: 0 20px;
+      font-size: 2rem;
+      margin: 0 15px;
       color: #dc3545;
       transition: 0.4s;
     }
@@ -91,15 +113,15 @@
     }
 
     footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
       color: #555;
     }
 
     /* Launch image */
     .launch-img {
       display: none;
-      margin-top: 25px;
+      margin-top: 20px;
       animation: zoomIn 1.5s ease forwards;
     }
     .launch-img img {
@@ -111,6 +133,43 @@
     @keyframes zoomIn {
       from { transform: scale(0.5); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .under-construction h1 {
+        font-size: 1.5rem;
+      }
+      .countdown {
+        font-size: 1.5rem;
+        padding: 8px;
+      }
+      .scripture {
+        font-size: 1.2rem;
+      }
+      .social-icons a {
+        font-size: 1.5rem;
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .under-construction {
+        padding: 1.5rem;
+      }
+      .under-construction h1 {
+        font-size: 1.2rem;
+      }
+      .countdown {
+        font-size: 1.2rem;
+      }
+      .scripture {
+        font-size: 1rem;
+      }
+      .social-icons a {
+        font-size: 1.3rem;
+        margin: 0 8px;
+      }
     }
   </style>
 </head>
@@ -130,8 +189,8 @@
 
     <!-- Social Icons -->
     <div class="social-icons">
-      <a href="mailto:info@cgacworldwide.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://wa.me/2348030410868" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/2348085324860" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
 
     <!-- Launch Image -->
